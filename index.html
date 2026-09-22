@@ -270,6 +270,17 @@ em { color: var(--muted); }
   letter-spacing: 0.04em; text-transform: uppercase; margin: 0 0 8px;
 }
 
+.demo-block { margin: 0 0 22px; }
+.demo-block h4 {
+  font-family: 'Oswald', Impact, sans-serif; font-weight: 600; font-size: 14px;
+  letter-spacing: 0.06em; text-transform: uppercase;
+  margin: 0 0 10px; padding-bottom: 6px;
+  border-bottom: 1px solid var(--hair);
+}
+.demo-block .metric-row { margin-bottom: 12px; }
+.demo-block ul { margin: 0; }
+.demo-block li { margin-bottom: 4px; }
+
 .chart { margin: 0 0 26px; }
 .chart svg {
   display: block; width: 100%; height: auto;
@@ -315,7 +326,9 @@ em { color: var(--muted); }
   .panel + .panel { break-before: page; padding-top: 0; }
   .metric-row, .channel-grid { grid-template-columns: repeat(3, 1fr); gap: 8px; }
   .channel-grid-2 { grid-template-columns: repeat(2, 1fr); }
-  .metric, .channel { break-inside: avoid; padding: 8px 10px; }
+  .metric, .channel, .demo-block { break-inside: avoid; padding: 8px 10px; }
+  .demo-block { padding: 0; }
+  .demo-block h4 { font-size: 9.6pt; }
   .metric-num { font-size: 20pt; }
   .metric-unit { font-size: 13pt; }
   .metric-label { font-size: 8pt; }
@@ -361,27 +374,89 @@ em { color: var(--muted); }
   <section class="panel is-active" data-tab="audience">
     <div class="panel-head">
       <h1>Audience <span>Demographics</span></h1>
-      <div class="standfirst">Broadcast and social distribution &middot; France &amp; United Kingdom.</div>
+      <div class="standfirst">Broadcast and social distribution &middot; United Kingdom.</div>
     </div>
       <h3 class="terms-section-title">Audience Overview
-        <span class="dist-section-sub">PFL &amp; MVP &middot; 2026 duplication</span></h3>
-      <div class="metric-row">
-        <div class="metric">
-          <div class="metric-num">5.0<span class="metric-unit">m</span></div>
-          <div class="metric-label">PFL viewers</div>
-          <div class="metric-sub">2026, persons 2+</div>
+        <span class="dist-section-sub">UK fan data &middot; August 2026</span></h3>
+      <div class="demo-block">
+        <h4>Who They Are</h4>
+        <div class="metric-row">
+          <div class="metric">
+          <div class="metric-num">70<span class="metric-unit">%</span></div>
+          <div class="metric-label">Male</div>
+          <div class="metric-sub">of the UK fanbase</div>
         </div>
-        <div class="metric">
-          <div class="metric-num">4.7<span class="metric-unit">m</span></div>
-          <div class="metric-label">MVP viewers</div>
-          <div class="metric-sub">2026, persons 2+</div>
+          <div class="metric">
+          <div class="metric-num">62<span class="metric-unit">%</span></div>
+          <div class="metric-label">Under 45</div>
+          <div class="metric-sub">18&ndash;24 index 184</div>
         </div>
-        <div class="metric">
-          <div class="metric-num">8.2<span class="metric-unit">m</span></div>
-          <div class="metric-label">Combined reach</div>
-          <div class="metric-sub">across both properties</div>
+          <div class="metric">
+          <div class="metric-num">22<span class="metric-unit">%</span></div>
+          <div class="metric-label">Aged 55+</div>
+          <div class="metric-sub">vs 43% nationally &middot; index 51</div>
         </div>
+        </div>
+        <ul>
+            <li>Youngest cohorts skew hardest &mdash; 18&ndash;24 at index 184, 25&ndash;34 at index 157</li>
+            <li>55% work full time (index 128); students index 160</li>
+            <li>Income sits at the top end &mdash; &pound;60&ndash;85k index 124, &pound;86&ndash;139k index 130, &pound;140k+ index 146</li>
+            <li>Education at or above national average across the board &mdash; no downmarket skew</li>
+        </ul>
       </div>
+
+      <div class="demo-block">
+        <h4>Betting Behaviour</h4>
+        <div class="metric-row">
+          <div class="metric">
+          <div class="metric-num">396</div>
+          <div class="metric-label">Online betting index</div>
+          <div class="metric-sub">10.1% vs 2.5% of all adults</div>
+        </div>
+          <div class="metric">
+          <div class="metric-num">7<span class="metric-unit">%</span></div>
+          <div class="metric-label">Do not gamble at all</div>
+          <div class="metric-sub">vs 23% nationally &middot; index 30</div>
+        </div>
+          <div class="metric">
+          <div class="metric-num">243</div>
+          <div class="metric-label">eSports interest index</div>
+          <div class="metric-sub">console 182, browser 255</div>
+        </div>
+        </div>
+        <ul>
+            <li><strong>The single strongest commercial index in the entire study</strong> &mdash; 10.1% placed a bet with an online bookmaker in the last 12 months</li>
+            <li>EuroMillions index 209, national weekly lottery index 171, scratchcards index 160, in-person bet index 170</li>
+        </ul>
+      </div>
+
+      <div class="demo-block">
+        <h4>Activation Implications</h4>
+        <div class="metric-row">
+          <div class="metric">
+          <div class="metric-num">207</div>
+          <div class="metric-label">Sports mobile app index</div>
+          <div class="metric-sub">social for sport 192</div>
+        </div>
+          <div class="metric">
+          <div class="metric-num">81<span class="metric-unit">%</span></div>
+          <div class="metric-label">Second-screen on mobile</div>
+          <div class="metric-sub">laptop index 183</div>
+        </div>
+          <div class="metric">
+          <div class="metric-num">73<span class="metric-unit">%</span></div>
+          <div class="metric-label">Likely to attend live</div>
+          <div class="metric-sub">index 146 / 211</div>
+        </div>
+        </div>
+        <ul>
+            <li>Mobile-first &mdash; online live streams index 183, sports podcasts index 240</li>
+            <li>Second-screening is near-universal, so live in-play betting behaviour is already there</li>
+            <li>8+ hours daily smartphone screentime, index 202</li>
+            <li>Ticketing, hospitality and on-site activation all have a real audience to sell to</li>
+        </ul>
+      </div>
+
       <figure class="chart">
         <svg viewBox="0 0 1040 430" role="img"
              aria-label="Venn diagram: PFL reaches 3.5 million viewers only, MVP 3.2 million only, 1.5 million see both">
@@ -416,7 +491,7 @@ em { color: var(--muted); }
       </figure>
 
       <h3 class="terms-section-title">Broadcast Distribution
-        <span class="dist-section-sub">2026 viewership &middot; France &amp; UK broadcast</span></h3>
+        <span class="dist-section-sub">2026 viewership &middot; UK broadcast</span></h3>
       <div class="metric-row">
         <div class="metric">
           <div class="metric-num">450<span class="metric-unit">k</span></div>
@@ -430,38 +505,47 @@ em { color: var(--muted); }
         </div>
         <div class="metric">
           <div class="metric-num">2</div>
-          <div class="metric-label">MVP events</div>
-          <div class="metric-sub">across territories</div>
+          <div class="metric-label">Events</div>
+          <div class="metric-sub">MVP and PFL, in the UK</div>
         </div>
       </div>
-      <div class="channel-grid channel-grid-2">
+      <div class="channel-grid">
         <div class="channel">
-          <div class="channel-tag">France &middot; Linear feed</div>
-          <h4>RMC Sport</h4>
+          <div class="channel-tag">MVP Events &middot; Linear feed</div>
+          <h4>Sky Sports</h4>
           <ul>
-              <li>All broadcast integrations delivered via the RMC Sport French feed</li>
-              <li>Banner overlays, sponsor graphics and on-screen promos across all RMC Sport coverage</li>
-              <li>Geo-targeted to France</li>
+              <li>All broadcast integrations for MVP Events delivered via the Sky Sports UK feed</li>
+              <li>Banner overlays, sponsor graphics and on-screen promos across all Sky Sports coverage</li>
+              <li>Geo-targeted to the United Kingdom</li>
           </ul>
         </div>
         <div class="channel">
-          <div class="channel-tag">United Kingdom &middot; Linear feed</div>
+          <div class="channel-tag">PFL Events &middot; Linear feed</div>
           <h4>talkSPORT</h4>
           <ul>
-              <li>All broadcast integrations delivered via the talkSPORT UK feed</li>
+              <li>All broadcast integrations for PFL Events delivered via the talkSPORT UK feed</li>
               <li>Banner overlays, sponsor graphics and on-screen promos across all talkSPORT coverage</li>
+              <li>Geo-targeted to the United Kingdom</li>
+          </ul>
+        </div>
+        <div class="channel">
+          <div class="channel-tag">PFL Events &middot; Digital feed</div>
+          <h4>YouTube</h4>
+          <ul>
+              <li>Live and on-demand PFL coverage carried across YouTube in the UK</li>
+              <li>Same co-branded overlay and sponsor-graphic package as the linear feed</li>
               <li>Geo-targeted to the United Kingdom</li>
           </ul>
         </div>
       </div>
 
       <h3 class="terms-section-title">Social Distribution
-        <span class="dist-section-sub">Expected reach &middot; France &amp; UK &middot; per fight card</span></h3>
+        <span class="dist-section-sub">Expected reach &middot; United Kingdom &middot; per fight card</span></h3>
       <div class="metric-row">
         <div class="metric">
           <div class="metric-num">2.7<span class="metric-unit">m</span></div>
           <div class="metric-label">Followers reached</div>
-          <div class="metric-sub">across MVP FR &amp; UK channels</div>
+          <div class="metric-sub">across MVP UK channels</div>
         </div>
         <div class="metric">
           <div class="metric-num">3<span class="metric-unit">+</span></div>
@@ -479,7 +563,7 @@ em { color: var(--muted); }
           <div class="channel-tag">Existing &middot; Primary channels</div>
           <h4>MVP Global Social Channels</h4>
           <ul>
-              <li>Distribution via established MVP Instagram, TikTok, Facebook &amp; YouTube handles across France &amp; the UK</li>
+              <li>Distribution via established MVP Instagram, TikTok, Facebook &amp; YouTube handles across the UK</li>
               <li>Three or more social posts per event, presented by Midnite</li>
               <li>Midnite logo inclusion and tag on every post</li>
           </ul>
@@ -488,14 +572,14 @@ em { color: var(--muted); }
           <div class="channel-tag">Content strategy</div>
           <h4>On-Ground Capture</h4>
           <ul>
-              <li>Native video and photography from every MVP fight card across both territories</li>
+              <li>Native video and photography from every MVP and PFL fight card in the UK</li>
           </ul>
         </div>
         <div class="channel">
           <div class="channel-tag">Content strategy</div>
           <h4>Broadcast Tune-In</h4>
           <ul>
-              <li>Tune-in CTAs across all content, driving traffic to the RMC Sport, talkSPORT and YouTube feeds</li>
+              <li>Tune-in CTAs across all content, driving traffic to the Sky Sports, talkSPORT and YouTube feeds</li>
           </ul>
         </div>
         <div class="channel">
@@ -725,7 +809,7 @@ em { color: var(--muted); }
 
 <script>
 (function () {
-  var BUILD = "c4727537b9b5";
+  var BUILD = "959e8d6279ad";
   var KEY = 'mvp-midnite-doc-v1';
   var sheet = document.getElementById('sheet');
   var flag = document.getElementById('savedFlag');
