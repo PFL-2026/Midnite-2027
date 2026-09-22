@@ -335,6 +335,7 @@ em { color: var(--muted); }
 <div class="toolbar no-print">
   <span class="hint">Click any text to edit &middot; <span class="saved" id="savedFlag">Saved</span></span>
   <button type="button" id="resetBtn">Reset</button>
+  <button type="button" id="htmlBtn">Download HTML</button>
   <button type="button" class="primary" id="pdfBtn">Download PDF</button>
 </div>
 
@@ -782,6 +783,46 @@ em { color: var(--muted); }
     if (!window.confirm('Discard your edits and restore the original terms?')) return;
     try { localStorage.removeItem(KEY); } catch (e) {}
     window.location.reload();
+  });
+
+  // Download the page as it now stands, edits baked into the markup, so the
+  // file can be committed back over index.html and the hosted page updated.
+  function currentDocument() {
+    var clone = document.documentElement.cloneNode(true);
+
+    // Always ship opening on the first tab, whatever is on screen here.
+    var ts = Array.prototype.slice.call(clone.querySelectorAll('.tab'));
+    ts.forEach(function (el, i) { el.setAttribute('aria-selected', String(i === 0)); });
+    var ps = Array.prototype.slice.call(clone.querySelectorAll('.panel'));
+    ps.forEach(function (el, i) { el.classList.toggle('is-active', i === 0); });
+
+    // These are applied by the controller on load; leaving them in the file
+    // would be harmless but noisy.
+    var s = clone.querySelector('#sheet');
+    if (s) { s.removeAttribute('contenteditable'); s.removeAttribute('spellcheck'); }
+    var f = clone.querySelector('#savedFlag');
+    if (f) { f.classList.remove('show'); }
+
+    // String.fromCharCode(10) rather than an escape: the escape does not
+    // survive being written through the generator and lands as a real
+    // newline, which breaks the string literal and the whole script.
+    var out = '<!DOCTYPE html>' + String.fromCharCode(10) + clone.outerHTML;
+    // A fresh build stamp, so saved edits made against the previous version
+    // are discarded rather than masking the content just committed.
+    out = out.replace(/var BUILD = "[^"]*";/,
+                      'var BUILD = "d' + Date.now().toString(36) + '";');
+    return out;
+  }
+
+  document.getElementById('htmlBtn').addEventListener('click', function () {
+    var blob = new Blob([currentDocument()], { type: 'text/html;charset=utf-8' });
+    var url = URL.createObjectURL(blob);
+    var a = document.createElement('a');
+    a.href = url;
+    a.download = 'index.html';
+    document.body.appendChild(a);
+    a.click();
+    setTimeout(function () { URL.revokeObjectURL(url); a.remove(); }, 0);
   });
 
   // Tab switching. The active tab is remembered alongside the edits so a
